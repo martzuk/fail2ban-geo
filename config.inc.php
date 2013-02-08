@@ -14,9 +14,6 @@ return array(
 		'password' => 'password',
 	),
 	
-	'site' => array(
-		'www_root' => $protocol . $host . "/fail2ban-geo"
-	),
 	'access' => array(
 		'key' => 'abcdefghijklmnopqrstuvwxyz123456'
 	)
