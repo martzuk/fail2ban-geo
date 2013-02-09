@@ -55,10 +55,11 @@
 	{
 		$countries = array();
 		$country_coords = array();
+		$ignore = array("AP", "A1", "A2", "EU", "O1", "XX");
 		
 		foreach($args as $arg)
 		{
-			if(!in_array($arg["iso"], $countries))
+			if(!in_array($arg["iso"], $countries) AND !in_array($arg["iso"], $ignore) AND !empty($arg["iso"]))
 			{
 				array_push($countries, $arg["iso"]);
 			}
@@ -71,6 +72,7 @@
 			array_push($country_coords, $cc);
 		}
 		
+		sort($country_coords);
 		return $country_coords;
 	}
 	
