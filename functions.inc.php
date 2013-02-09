@@ -1,5 +1,5 @@
 <?php
-
+	//Import configuration details
 	$config = require "config.inc.php";
 
 	//Create New PDO connection variable
@@ -17,6 +17,7 @@
 	require_once "geoip.inc";
 	$gi = geoip_open("GeoIP.dat", GEOIP_STANDARD);
 	
+	//Add banned IP to database
 	function addIp($ip)
 	{
 		global $db;
@@ -28,6 +29,7 @@
 		$stmt->execute(array($ip, $ip_details["hostname"], $ip_details["country"], $dateTime));
 	}
 	
+	//Lookup the country and hostname details of an IP address
 	function lookupIpDetails($ip)
 	{
 		global $gi;
@@ -37,6 +39,7 @@
 		return array("country" => $iso, "hostname" => $hostname);
 	}
 	
+	//Gets a list of all ip addresses that have been banned
 	function getAllIps()
 	{
 		global $db;
@@ -47,6 +50,7 @@
 		return $result;
 	}
 	
+	//Gets a list of countries along with co-ordinates to publish to the map
 	function getCountries($args)
 	{
 		$countries = array();
@@ -70,6 +74,7 @@
 		return $country_coords;
 	}
 	
+	//Gets co-ordinates of a country (capital city) based on it's ISO 3166-1 country code
 	function getCoords($iso)
 	{
 		global $db;
@@ -78,5 +83,22 @@
 		$stmt->execute(array($iso));
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 		return $result;
+	}
+	
+	//Get top X amount of countries that have been banned
+	function topXCountries($amount)
+	{
+		global $db;
+		
+		$countries = array();
+		$IPs = getAllIps();
+		
+		foreach($IPs as $ip)
+		{
+			$iso = $ip["iso"];
+			$countries[$iso] = $countries[$iso] + 1;
+		}
+		arsort($countries);
+		return array_slice($countries, 0, $amount);
 	}
 ?>
