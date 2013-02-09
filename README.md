@@ -15,5 +15,10 @@ Current checklist:
 
 - Finish adding co-ordinates for all countries
 - Add ability to download ip addresses
-- Move styling to css file
-- Move javascript to js file
+ 
+============
+
+Thanks:
+
+- Fail2Ban team for creating the awesome tool that protects zillions of servers from attackers!
+- Google for it's awesome map
