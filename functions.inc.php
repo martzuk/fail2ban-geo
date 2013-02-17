@@ -44,7 +44,7 @@
 	{
 		global $db;
 		
-		$stmt = $db->prepare("SELECT * FROM `banned_ips`");
+		$stmt = $db->prepare("SELECT * FROM `banned_ips` ORDER BY `id` DESC");
 		$stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		return $result;
@@ -89,9 +89,7 @@
 	
 	//Get top X amount of countries that have been banned
 	function topXCountries($amount)
-	{
-		global $db;
-		
+	{	
 		$countries = array();
 		$IPs = getAllIps();
 		
@@ -101,6 +99,23 @@
 			$countries[$iso] = $countries[$iso] + 1;
 		}
 		arsort($countries);
+		return array_slice($countries, 0, $amount);
+	}
+	
+	//Get latest X amount of countries that have been banned
+	function latestXCountries($amount)
+	{
+		$countries = array();
+		$IPs = getAllIps();
+		
+		foreach($IPs as $ip)
+		{
+			if(!in_array($ip["iso"], $countries))
+			{
+				array_push($countries, $ip["iso"]);
+			}
+		}
+		
 		return array_slice($countries, 0, $amount);
 	}
 ?>

@@ -17,7 +17,7 @@
 		$(document).ready(function(){
 			
 				var myOptions = {
-				center: new google.maps.LatLng(34, -2),
+				center: new google.maps.LatLng(26, -2),
 				zoom: 2,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
@@ -55,6 +55,19 @@
 		<div id="bottom_menu">
 			<div class="left">
 				<h2><a href="https://github.com/martzuk/fail2ban-geo">Fail2Ban-Geo</a></h2>
+			</div>
+			<div class="right">
+				<p><strong>Latest 5 Blocked Countries</strong></p>
+				<ol>
+					<?php
+						$latest_countries = latestXCountries(5);
+						foreach($latest_countries as $country)
+						{
+							$iso_details = getCoords($country);
+					?>
+					<li><img src="images/flags/<?php echo $country; ?>.png" alt="<?php echo $iso_details["name"]; ?>" title="<?php echo $iso_details["name"]; ?>" /></li>
+					<?php } ?>
+				</ol>
 			</div>
 			<div class="right">
 				<p><strong>Top 5 Blocked Countries</strong> (attempts per country):</p>
