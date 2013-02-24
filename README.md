@@ -27,10 +27,10 @@ Thanks:
 
 Setup:
 
-1 - Install Fail2Ban
-2 - Install Webserver + PHP + MySQL server
-3 - Restore provided MySQL dump to new database (contains co-ordinates)
-4 - Upload files to web-server directory
-5 - Setup config file (you need to add a random key so that other people can't add records to your db)
+1. Install Fail2Ban
+2. Install Webserver + PHP + MySQL server
+3. Restore provided MySQL dump to new database (contains co-ordinates)
+4. Upload files to web-server directory
+5. Setup config file (you need to add a random key so that other people can't add records to your db)
 
 TBC...
