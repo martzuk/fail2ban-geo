@@ -27,11 +27,12 @@ DROP TABLE IF EXISTS `banned_ips`;
 
 CREATE TABLE `banned_ips` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `ip` varchar(15) DEFAULT NULL,
-  `hostname` varchar(128) DEFAULT NULL,
-  `iso` varchar(2) DEFAULT NULL,
+  `ip` varchar(39) DEFAULT NULL,
+  `hostname` varchar(64) DEFAULT NULL,
+  `iso` char(2) DEFAULT NULL,
   `date_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX iso ( iso)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -43,11 +44,12 @@ DROP TABLE IF EXISTS `countries`;
 
 CREATE TABLE `countries` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `lat` varchar(9) DEFAULT NULL,
-  `lng` varchar(9) DEFAULT NULL,
-  `name` varchar(64) DEFAULT NULL,
-  `iso` varchar(2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `lat` varchar(9) NOT NULL,
+  `lng` varchar(9) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `iso` char(2) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX iso ( iso )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `countries` WRITE;
