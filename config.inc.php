@@ -11,7 +11,7 @@ return array(
 	'pdo' => array(
 		'dsn' => 'mysql:dbname=fail2ban-geo;host=localhost',
 		'username' => 'username',
-		'password' => 'password',
+		'password' => 'password'
 	),
 	
 	'access' => array(

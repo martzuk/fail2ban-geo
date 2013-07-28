@@ -10,8 +10,10 @@
 		<title>Fail2Ban-Geo</title>
 		<!--CSS-->
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 		<!--JavaScript-->
-		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
@@ -51,13 +53,11 @@
 		</script>
 	</head>
 	<body>
+		<h2><a href="https://github.com/martzuk/fail2ban-geo">Fail2Ban-Geo</a></h2>
 		<div id="map_canvas"></div>
 		<div id="bottom_menu">
-			<div class="left">
-				<h2><a href="https://github.com/martzuk/fail2ban-geo">Fail2Ban-Geo</a></h2>
-			</div>
-			<div class="right">
-				<p><strong>Latest 5 Blocked Countries</strong></p>
+			<div class="stat">
+				<p><strong>Latest 5 Blocked Countries:</strong></p>
 				<ol>
 					<?php
 						$latest_countries = latestXCountries(5);
@@ -69,8 +69,8 @@
 					<?php } ?>
 				</ol>
 			</div>
-			<div class="right">
-				<p><strong>Top 5 Blocked Countries</strong> (attempts per country):</p>
+			<div class="stat">
+				<p><strong>Top 5 Blocked Countries:</strong></p>
 				<ol>
 					<?php
 						$top_countries = topXCountries(5);

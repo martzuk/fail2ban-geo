@@ -96,10 +96,14 @@
 		foreach($IPs as $ip)
 		{
 			$iso = $ip["iso"];
+			if(!array_key_exists($iso, $countries))
+			{
+				$countries[$iso] = "";
+			}
 			$countries[$iso] = $countries[$iso] + 1;
 		}
 		arsort($countries);
-		return array_slice($countries, 0, $amount);
+	return array_slice($countries, 0, $amount);
 	}
 	
 	//Get latest X amount of countries that have been banned
