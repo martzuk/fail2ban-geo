@@ -57,6 +57,14 @@
 		<div id="map_canvas"></div>
 		<div id="bottom_menu">
 			<div class="stat">
+				<p><strong>Stats:</p>
+				<ul>
+					<li><strong>IPs blocked:</strong> <?php echo amountOfBlocks(); ?></li>
+					<li><strong>Unique IPs blocked:</strong> <?php echo amountOfIPs(); ?></li>
+					<li><strong>Countries blocked:</strong> <?php echo amountOfCountries(); ?></li>
+				</ul>
+			</div>
+			<div class="stat">
 				<p><strong>Latest 5 Blocked Countries:</strong></p>
 				<ol>
 					<?php
@@ -65,7 +73,7 @@
 						{
 							$iso_details = getCoords($country);
 					?>
-					<li><img src="images/flags/<?php echo $country; ?>.png" alt="<?php echo $iso_details["name"]; ?>" title="<?php echo $iso_details["name"]; ?>" /></li>
+					<li><img src="images/flags/<?php echo $country; ?>.png" alt="<?php echo $iso_details["name"]; ?>" title="<?php echo $iso_details["name"]; ?>" /> <?php echo $iso_details["name"]; ?></li>
 					<?php } ?>
 				</ol>
 			</div>
@@ -78,7 +86,7 @@
 						{
 							$iso_details = getCoords($country);
 					?>
-						<li><img src="images/flags/<?php echo $country; ?>.png" alt="<?php echo $iso_details["name"]; ?>" title="<?php echo $iso_details["name"]; ?>" /> : <?php echo $count; ?></li>
+						<li><img src="images/flags/<?php echo $country; ?>.png" alt="<?php echo $iso_details["name"]; ?>" title="<?php echo $iso_details["name"]; ?>" /> : <?php echo $iso_details["name"] . " (" . $count . ")" ; ?></li>
 						
 					<?php } ?>
 				</ol>

@@ -122,4 +122,38 @@
 		
 		return array_slice($countries, 0, $amount);
 	}
+	
+	function amountOfIPs()
+	{
+		$blocks = getAllIps();
+		$list = array();
+		foreach($blocks as $block)
+		{
+			if(!in_array($block["ip"], $list))
+			{
+				array_push($list, $block["ip"]);
+			}
+		}
+		return count($list);
+	}
+	
+	function amountOfBlocks()
+	{
+		return count(getAllIps());
+	}
+	
+	function amountOfCountries()
+	{
+		$blocks = getAllIps();
+		$list = array();
+		foreach($blocks as $block)
+		{
+			if(!in_array($block["iso"], $list))
+			{
+				array_push($list, $block["iso"]);
+			}
+		}
+		return count($list);
+	}
+	
 ?>
