@@ -86,7 +86,7 @@
 						{
 							$iso_details = getCoords($country);
 					?>
-						<li><img src="images/flags/<?php echo $country; ?>.png" alt="<?php echo $iso_details["name"]; ?>" title="<?php echo $iso_details["name"]; ?>" /> : <?php echo $iso_details["name"] . " (" . $count . ")" ; ?></li>
+						<li><img src="images/flags/<?php echo $country; ?>.png" alt="<?php echo $iso_details["name"]; ?>" title="<?php echo $iso_details["name"]; ?>" /> <?php echo $iso_details["name"] . " (" . $count . ")" ; ?></li>
 						
 					<?php } ?>
 				</ol>

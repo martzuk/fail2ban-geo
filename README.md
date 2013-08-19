@@ -11,6 +11,7 @@ http://rbx01.martyserver.co.uk/fail2ban-geo
 http://ams01.martyserver.co.uk/fail2ban-geo
 http://ewr01.martyserver.co.uk/fail2ban-geo
 http://sfo01.martyserver.co.uk/fail2ban-geo
+http://jfk01.martyserver.co.uk/fail2ban-geo
 
 ============
 
